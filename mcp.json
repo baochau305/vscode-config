@@ -1,0 +1,26 @@
+{
+  "inputs": [
+    {
+        "type": "promptString",
+        "id": "figma-api-key",
+        "description": "Figma API Key",
+        "required": true
+    }
+  ],
+  "servers": {
+    "figma": {
+        "type": "stdio",
+        "command": "npx",
+        "args": [
+            "-y",
+            "figma-developer-mcp",
+            "--stdio"
+        ],
+        "env": {
+            "FIGMA_API_KEY": "${input:figma-api-key}"
+        },
+        "port": 3333
+    }
+  }
+}
+
